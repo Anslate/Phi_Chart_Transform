@@ -78,3 +78,5 @@ for judgeline in file_json["judgeLineList"]:
             file_pec.write("& 1.00\n")
 
     count+=1
+file_json.close()
+file_pec.close()
