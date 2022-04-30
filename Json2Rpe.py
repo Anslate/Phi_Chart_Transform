@@ -1,8 +1,8 @@
 import json
 import math
 
-a = "D:\Coding\Phi_Chart_Transform\demo\Chart_AT.json"
-b = "D:\Coding\Phi_Chart_Transform\demo\Chart_AT2.json"
+a = input("官谱json名称:\n")
+b = input("希望导出的rpe json名称:\n")
 
 file_json = open(a,"r",encoding="utf-8")
 file_json = json.loads(file_json.read())
@@ -10,18 +10,25 @@ rpe = {
     "BPMList":[],
     "META":{
         "RPEVersion":100,
-        "background":"Illustration.png",
-        "charter":"abc",
-        "composer":"abc",
+        "name":input("名称:"),
+        "song":input("音频名称:"),
+        "background":input("曲绘名称:"),
+        "charter":input("谱师:"),
+        "composer":input("曲师:"),
         "id":"00000000",
-        "level":"0",
-        "name":"abc",
-        "offset":0,
-        "song":"Rrhar'il.wav"
+        "level":input("难度:"),
+        "offset":0
     },
     "judgeLineGroup":["Default"],
     "judgeLineList":[]
 }
+#写入info.txt
+info = "#\nName: {}\nPath: {}\nSong: {}\nPicture: {}\nChart: {}\nLevel: {}\nComposer: {}\nCharter: {}".format(
+    rpe["META"]["name"],rpe["META"]["id"],rpe["META"]["song"],rpe["META"]["background"],b,rpe["META"]["level"],rpe["META"]["composer"],rpe["META"]["charter"])
+info_txt = open("info.txt","w",encoding="utf-8")
+info_txt.write(info)
+info_txt.close()
+
 #写入bpm
 rpe["BPMList"].append({"bpm":file_json["judgeLineList"][0]["bpm"],"startTime":[0,0,1]})
 #遍历
