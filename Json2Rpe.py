@@ -80,9 +80,7 @@ for judgeline in file_json["judgeLineList"]:
     #音符
     rpe["judgeLineList"][count]["isCover"] = 1
     rpe["judgeLineList"][count]["notes"] = []
-    note_conut = 0
     for i in judgeline["notesAbove"]:
-        note_conut += 1
         if(i["type"]==1):
             rpe["judgeLineList"][count]["notes"].append(
                 {
@@ -213,10 +211,10 @@ for judgeline in file_json["judgeLineList"]:
                 }
             )
     if not ("numOfNotes" in judgeline): # 解决了部分谱面没有 numOfNotes 的问题
-        print("找不到 numOfNotes，已自动计算："+str(note_conut))
-        rpe["judgeLineList"][count]["numOfNotes"] = note_conut
+        print("找不到 numOfNotes，已自动计算")
+        rpe["judgeLineList"][count]["numOfNotes"] = len(judgeline["notesAbove"])
     else:
-   		rpe["judgeLineList"][count]["numOfNotes"] = judgeline["numOfNotes"]
+   	    rpe["judgeLineList"][count]["numOfNotes"] = judgeline["numOfNotes"]
     count+=1
 
 file_rpe = open(b,"w",encoding="utf-8")
