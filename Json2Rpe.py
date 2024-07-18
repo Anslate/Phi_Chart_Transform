@@ -232,7 +232,7 @@ for judgeline in file_json["judgeLineList"]:
         print("找不到 numOfNotes，已自动计算")
         rpe["judgeLineList"][count]["numOfNotes"] = len(judgeline["notesAbove"]) + len(judgeline["notesBelow"])
     else:
-           rpe["judgeLineList"][count]["numOfNotes"] = judgeline["numOfNotes"]
+        rpe["judgeLineList"][count]["numOfNotes"] = judgeline["numOfNotes"]
     count+=1
 
 file_rpe = open(b,"w",encoding="utf-8")
