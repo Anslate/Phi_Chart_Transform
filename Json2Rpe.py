@@ -45,21 +45,39 @@ for judgeline in file_json["judgeLineList"]:
             "start":i["start"]*255,
             "startTime":[math.floor(i["startTime"]/32),int(i["startTime"])%32,32]})
     #判定线坐标
-    for i in judgeline["judgeLineMoveEvents"]:
-        rpe["judgeLineList"][count]["eventLayers"][0]["moveXEvents"].append(
-            {"easingType":1,
-            "end":-450+i["end"]*900,
-            "endTime":[math.floor(i["endTime"]/32),int(i["endTime"])%32,32],
-            "linkgroup":0,
-            "start":-450+i["start"]*900,
-            "startTime":[math.floor(i["startTime"]/32),int(i["startTime"])%32,32]})
-        rpe["judgeLineList"][count]["eventLayers"][0]["moveYEvents"].append(
-            {"easingType":1,
-            "end":-450+i["end2"]*900,
-            "endTime":[math.floor(i["endTime"]/32),int(i["endTime"])%32,32],
-            "linkgroup":0,
-            "start":-450+i["start2"]*900,
-            "startTime":[math.floor(i["startTime"]/32),int(i["startTime"])%32,32]})    
+    if file_json["formatVersion"] == 3:
+        for i in judgeline["judgeLineMoveEvents"]:
+            rpe["judgeLineList"][count]["eventLayers"][0]["moveXEvents"].append(
+                {"easingType":1,
+                "end":-450+i["end"]*900,
+                "endTime":[math.floor(i["endTime"]/32),int(i["endTime"])%32,32],
+                "linkgroup":0,
+                "start":-450+i["start"]*900,
+                "startTime":[math.floor(i["startTime"]/32),int(i["startTime"])%32,32]})
+            rpe["judgeLineList"][count]["eventLayers"][0]["moveYEvents"].append(
+                {"easingType":1,
+                "end":-450+i["end2"]*900,
+                "endTime":[math.floor(i["endTime"]/32),int(i["endTime"])%32,32],
+                "linkgroup":0,
+                "start":-450+i["start2"]*900,
+                "startTime":[math.floor(i["startTime"]/32),int(i["startTime"])%32,32]})
+    elif file_json["formatVersion"] == 1:
+        #一代远古官谱
+        for i in judgeline["judgeLineMoveEvents"]:
+            rpe["judgeLineList"][count]["eventLayers"][0]["moveXEvents"].append(
+                {"easingType":1,
+                "end":-450+(i["end"]//1000)/880*900,
+                "endTime":[math.floor(i["endTime"]/32),int(i["endTime"])%32,32],
+                "linkgroup":0,
+                "start":-450+(i["start"]//1000)/880*900,
+                "startTime":[math.floor(i["startTime"]/32),int(i["startTime"])%32,32]})
+            rpe["judgeLineList"][count]["eventLayers"][0]["moveYEvents"].append(
+                {"easingType":1,
+                "end":-450+(i["end"]%1000)/520*900,
+                "endTime":[math.floor(i["endTime"]/32),int(i["endTime"])%32,32],
+                "linkgroup":0,
+                "start":-450+(i["start"]%1000)/520*900,
+                "startTime":[math.floor(i["startTime"]/32),int(i["startTime"])%32,32]})
     #判定线旋转
     for i in judgeline["judgeLineRotateEvents"]:
          rpe["judgeLineList"][count]["eventLayers"][0]["rotateEvents"].append(
@@ -212,9 +230,9 @@ for judgeline in file_json["judgeLineList"]:
             )
     if not ("numOfNotes" in judgeline): # 解决了部分谱面没有 numOfNotes 的问题
         print("找不到 numOfNotes，已自动计算")
-        rpe["judgeLineList"][count]["numOfNotes"] = len(judgeline["notesAbove"])
+        rpe["judgeLineList"][count]["numOfNotes"] = len(judgeline["notesAbove"]) + len(judgeline["notesBelow"])
     else:
-   	    rpe["judgeLineList"][count]["numOfNotes"] = judgeline["numOfNotes"]
+           rpe["judgeLineList"][count]["numOfNotes"] = judgeline["numOfNotes"]
     count+=1
 
 file_rpe = open(b,"w",encoding="utf-8")
