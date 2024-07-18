@@ -7,7 +7,7 @@ Phigros官谱Json至rpe json以及pec的转换
 > 爬  
 > —— lchzh3473
 
-## 本项目仍在开发初期，可能会有以下要素  
+## 本项目基本被弃坑，可能会有以下要素  
 
 屎山代码  
 依靠bug运行  
@@ -71,8 +71,7 @@ Chart_IN_rpe.json
 于是，炸内存了  
 Rrhar'il的AT也有bug，但我没找出来问题在哪  
 在线等个大佬Pull requests  
-本人比较菜，rks才13，暂时没有申请到pe和rpe，有大佬能帮忙测试一下就更好了 
 
-**如果要进行作品制作，例如视频，请标注使用了PCT**  
+**请随意使用，本作品已无版权限制**  
 **注意：此项目与厦门鸽游网络有限公司(Xiamen Pigeon Games Network Co., Ltd.)没有任何关系**  
 若有侵权，请联系删除
