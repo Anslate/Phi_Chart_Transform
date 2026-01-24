@@ -13,8 +13,9 @@ rpe = {
         "name":input("名称:"),
         "song":input("音频名称:"),
         "background":input("曲绘名称:"),
-        "charter":input("谱师:"),
         "composer":input("曲师:"),
+        "charter":input("谱师:"),
+        "illustrator":input("画师:"),
         "id":"00000000",
         "level":input("难度:"),
         "offset":0
@@ -23,8 +24,8 @@ rpe = {
     "judgeLineList":[]
 }
 #写入info.txt
-info = "#\nName: {}\nPath: {}\nSong: {}\nPicture: {}\nChart: {}\nLevel: {}\nComposer: {}\nCharter: {}".format(
-    rpe["META"]["name"],rpe["META"]["id"],rpe["META"]["song"],rpe["META"]["background"],b,rpe["META"]["level"],rpe["META"]["composer"],rpe["META"]["charter"])
+info = "#\nName: {}\nPath: {}\nSong: {}\nPicture: {}\nChart: {}\nLevel: {}\nComposer: {}\nCharter: {}\nIllustrator: {}".format(
+    rpe["META"]["name"],rpe["META"]["id"],rpe["META"]["song"],rpe["META"]["background"],b,rpe["META"]["level"],rpe["META"]["composer"],rpe["META"]["charter"],rpe["META"]["illustrator"])
 info_txt = open("info.txt","w",encoding="utf-8")
 info_txt.write(info)
 info_txt.close()
@@ -163,10 +164,10 @@ for judgeline in file_json["judgeLineList"]:
                     "yOffset" : 0.0
                 }
             )
-        for i in judgeline["notesBelow"]:
-            if(i["type"]==1):
-                rpe["judgeLineList"][count]["notes"].append(
-                   {
+    for i in judgeline["notesBelow"]:
+        if(i["type"]==1):
+            rpe["judgeLineList"][count]["notes"].append(
+                {
                     "above":2,
                     "alpha":255,
                     "endTime":[math.floor(i["time"]/32),int(i["time"])%32,32],
@@ -179,9 +180,9 @@ for judgeline in file_json["judgeLineList"]:
                     "visibleTime" : 999999.0,
                     "yOffset" : 0.0
                 }
-              )
-            elif(i["type"]==2):   
-                rpe["judgeLineList"][count]["notes"].append(
+             )
+        elif(i["type"]==2):
+            rpe["judgeLineList"][count]["notes"].append(
                 {
                     "above":2,
                     "alpha":255,
@@ -196,8 +197,8 @@ for judgeline in file_json["judgeLineList"]:
                     "yOffset" : 0.0
                 }
             ) 
-            elif(i["type"]==3):
-                rpe["judgeLineList"][count]["notes"].append(
+        elif(i["type"]==3):
+            rpe["judgeLineList"][count]["notes"].append(
                 {
                     "above":2,
                     "alpha":255,
@@ -212,8 +213,8 @@ for judgeline in file_json["judgeLineList"]:
                     "yOffset" : 0.0
                 }
             )
-            else:
-                rpe["judgeLineList"][count]["notes"].append(
+        else:
+            rpe["judgeLineList"][count]["notes"].append(
                 {
                     "above":2,
                     "alpha":255,
