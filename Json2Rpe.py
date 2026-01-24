@@ -50,10 +50,10 @@ for judgeline in file_json["judgeLineList"]:
         for i in judgeline["judgeLineMoveEvents"]:
             rpe["judgeLineList"][count]["eventLayers"][0]["moveXEvents"].append(
                 {"easingType":1,
-                "end":-450+i["end"]*900,
+                "end":-675+i["end"]*1350,
                 "endTime":[math.floor(i["endTime"]/32),int(i["endTime"])%32,32],
                 "linkgroup":0,
-                "start":-450+i["start"]*900,
+                "start":-675+i["start"]*1350,
                 "startTime":[math.floor(i["startTime"]/32),int(i["startTime"])%32,32]})
             rpe["judgeLineList"][count]["eventLayers"][0]["moveYEvents"].append(
                 {"easingType":1,
@@ -67,10 +67,10 @@ for judgeline in file_json["judgeLineList"]:
         for i in judgeline["judgeLineMoveEvents"]:
             rpe["judgeLineList"][count]["eventLayers"][0]["moveXEvents"].append(
                 {"easingType":1,
-                "end":-450+(i["end"]//1000)/880*900,
+                "end":-675+(i["end"]//1000)/880*1350,
                 "endTime":[math.floor(i["endTime"]/32),int(i["endTime"])%32,32],
                 "linkgroup":0,
-                "start":-450+(i["start"]//1000)/880*900,
+                "start":-675+(i["start"]//1000)/880*1350,
                 "startTime":[math.floor(i["startTime"]/32),int(i["startTime"])%32,32]})
             rpe["judgeLineList"][count]["eventLayers"][0]["moveYEvents"].append(
                 {"easingType":1,
