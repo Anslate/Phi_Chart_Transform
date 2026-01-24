@@ -2,7 +2,7 @@
 
 Phigros官谱Json至rpe json以及pec的转换  
 简称PCT  
-版本v0.1  
+版本v0.1.2  
 先来句名言辟邪
 > 爬  
 > —— lchzh3473
@@ -69,9 +69,12 @@ Chart_IN_rpe.json
 
 用来举例的WATER在我的rpe中是打不开的，毕竟那判定线表演，没有数十万个动作搞不定  
 于是，炸内存了  
-Rrhar'il的AT也有bug，但我没找出来问题在哪  
-在线等个大佬Pull requests  
+~~Rrhar'il的AT也有bug，但我没找出来问题在哪~~  
+~~在线等个大佬Pull requests~~  
+感谢[Escolony](https://github.com/Escolony)大佬的[纠错](https://github.com/Anslate/Phi_Chart_Transform/pull/3)  
+竟然是缩进这种低级错误（逃）
 
-**请随意使用，本作品已无版权限制**  
+
+**请随意使用，本作品无版权限制**  
 **注意：此项目与厦门鸽游网络有限公司(Xiamen Pigeon Games Network Co., Ltd.)没有任何关系**  
 若有侵权，请联系删除
