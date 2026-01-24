@@ -2,7 +2,7 @@
 
 Phigros官谱Json至rpe json以及pec的转换  
 简称PCT  
-版本v0.1.2  
+版本v0.1.3  
 先来句名言辟邪
 > 爬  
 > —— lchzh3473
